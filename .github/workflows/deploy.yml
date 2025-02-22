@@ -17,7 +17,7 @@ jobs:
           git config --global user.email "me@example.com"
           git config --global user.name ${{ github.actor }}
 
-          git init -b gh_pages
+          git init -b gh-pages
           git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git add -A
           git commit -m 'deploy'
