@@ -1,0 +1,26 @@
+name: Deploying to Github Pages
+run-name: Deploying to Github Pages
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Building vue app
+        run: |
+          npm install
+          npm run build
+          cd dist
+
+          git config --global user.email "me@example.com"
+          git config --global user.name ${{ github.actor }}
+
+          git init -b gh_pages
+          git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add -A
+          git commit -m 'deploy'
+
+          git push -f origin gh-pages
+          cd -

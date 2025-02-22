@@ -1,0 +1,115 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+  --keyboard-bg: #121914;
+  --border-color: #3C4558;
+  --text-color: #d8ecdf;
+  --text-color2: #5db6ff;
+
+  --keyboard-keycaps-pressed: var(--text-color2);
+  --keyboard-keycaps-active: rgba(93, 182, 255, 0.75);
+}
+
+body {
+  background-color: #161922;
+  color: var(--text-color);
+}
+
+a, a:visited, a:active {
+  color: inherit;
+}
+
+.title {
+  font-size: 2.25em;
+  letter-spacing: 0.3rem;
+  text-align: center;
+}
+
+.rafinetiz {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 0.75em;
+}
+
+.rafinetiz > a.link {
+  color: var(--text-color2);
+}
+
+.margin-4 {
+  margin: 1rem;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  margin-inline: auto;
+
+  @media (width >= 40rem /* 640px */) {
+    max-width: 40rem /* 640px */;
+  }
+  @media (width >= 48rem /* 768px */) {
+    max-width: 48rem /* 768px */;
+  }
+  @media (width >= 64rem /* 1024px */) {
+    max-width: 64rem /* 1024px */;
+  }
+  @media (width >= 80rem /* 1280px */) {
+    max-width: 80rem /* 1280px */;
+  }
+  @media (width >= 96rem /* 1536px */) {
+    max-width: 96rem /* 1536px */;
+  }
+}
+
+.keyboard-container {
+  background-color: var(--keyboard-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+  user-select: none;
+  margin-inline: auto;
+
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.keyboard-container .col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.keyboard-container > .col.left {
+  max-width: 800px;
+}
+
+.keyboard-container .row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.keyboard-container .keycaps {
+  border: 1px solid var(--border-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.keycaps.active {
+  background-color: var(--keyboard-keycaps-active);
+  color: var(--keyboard-bg);
+}
+
+.keycaps.pressed {
+  background-color: var(--keyboard-keycaps-pressed);
+}
+
+.keycaps span {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+}
